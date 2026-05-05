@@ -14,3 +14,19 @@ This project is a **Production-Ready ETL Pipeline** designed to ingest, clean, a
 - **Database:** SQLite
 - **Libraries:** Pandas, OS, Logging
 
+## Cloud Scaling & Infrastructure
+While this version runs locally for demonstration, the architecture is designed for cloud-native deployment:
+- **Compute:** The ETL logic is modular, making it ready to be wrapped in an **AWS Lambda** function.
+- **Trigger:** In a production environment, this would be triggered by **S3 Event Notifications** whenever a new raw data file is uploaded.
+- **Storage:** Cleaned data would be loaded into **AWS Redshift** or **Snowflake** for large-scale analytics.
+- **Security:** Secrets are managed via **AWS Secrets Manager** (demonstrated via the `os.getenv` implementation).
+## System Architecture
+Below is the data flow for this ETL pipeline. GitHub will automatically render this text into a visual diagram.
+
+```mermaid
+graph LR
+    A[Raw Data Source] -->|Ingest| B(Python ETL Pipeline)
+    B -->|Defensive Cleaning| C{Validation}
+    C -->|Valid| D[Clean Database/Report]
+    C -->|Invalid| E[Error Logs]
+```
