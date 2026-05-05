@@ -21,7 +21,7 @@ While this version runs locally for demonstration, the architecture is designed 
 - **Storage:** Cleaned data would be loaded into **AWS Redshift** or **Snowflake** for large-scale analytics.
 - **Security:** Secrets are managed via **AWS Secrets Manager** (demonstrated via the `os.getenv` implementation).
 ## System Architecture
-Below is the data flow for this ETL pipeline. GitHub will automatically render this text into a visual diagram.
+
 
 ```mermaid
 graph LR
